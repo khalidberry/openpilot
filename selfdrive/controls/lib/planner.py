@@ -80,9 +80,6 @@ class Planner():
     self.v_model = 0.0
     self.a_model = 0.0
 
-    self.v_trajectories = np.zeros((20*5, 5))
-    self.a_trajectories = np.zeros((20*5, 5))
-
     self.longitudinalPlanSource = 'cruise'
     self.fcw_checker = FCWChecker()
     self.path_x = np.arange(192)
@@ -137,17 +134,8 @@ class Planner():
       speeds = np.array(list((sm['model'].longitudinal.speeds)))
       accels = np.array(list((sm['model'].longitudinal.accelerations)))
 
-      self.v_trajectories[1:] = self.v_trajectories[:-1]
-      self.a_trajectories[1:] = self.a_trajectories[:-1]
-
-      self.v_trajectories[0] = speeds[:5]
-      self.a_trajectories[0] = accels[:5]
-
-      self.v_model = 0
-      self.a_model = 0
-      for i in range(5):
-        self.v_model += self.v_trajectories[20*i, i]/5
-        self.a_model += self.a_trajectories[20*i, i]/5
+      self.v_model = speeds[0] + 2*accels[0] + .2
+      self.a_model = accels[0]
 
     else:
       self.v_model = MAX_SPEED
