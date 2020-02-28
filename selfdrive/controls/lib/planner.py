@@ -90,10 +90,10 @@ class Planner():
   def choose_solution(self, v_cruise_setpoint, enabled):
     if enabled:
       solutions = {'model': self.v_model, 'cruise': self.v_cruise}
-      if self.mpc1.prev_lead_status:
-        solutions['mpc1'] = self.mpc1.v_mpc
-      if self.mpc2.prev_lead_status:
-        solutions['mpc2'] = self.mpc2.v_mpc
+      #if self.mpc1.prev_lead_status:
+      #  solutions['mpc1'] = self.mpc1.v_mpc
+      #if self.mpc2.prev_lead_status:
+      #  solutions['mpc2'] = self.mpc2.v_mpc
 
       slowest = min(solutions, key=solutions.get)
 
@@ -134,7 +134,7 @@ class Planner():
       speeds = np.array(list((sm['model'].longitudinal.speeds)))
       accels = np.array(list((sm['model'].longitudinal.accelerations)))
 
-      self.v_model = speeds[0] + 2*accels[0] + .2
+      self.v_model = speeds[0]
       self.a_model = accels[0]
 
     else:
