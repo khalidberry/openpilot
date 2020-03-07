@@ -188,35 +188,35 @@ CONFIGS = [
     init_callback=fingerprint,
     should_recv_callback=None,
   ),
-  ProcessConfig(
-    proc_name="radard",
-    pub_sub={
-      "can": ["radarState", "liveTracks"],
-      "liveParameters":  [], "controlsState":  [], "model":  [],
-    },
-    ignore=[("logMonoTime", 0), ("valid", True), ("radarState.cumLagMs", 0)],
-    init_callback=get_car_params,
-    should_recv_callback=radar_rcv_callback,
-  ),
-  ProcessConfig(
-    proc_name="plannerd",
-    pub_sub={
-      "model": ["pathPlan"], "radarState": ["plan"],
-      "carState": [], "controlsState": [], "liveParameters": [],
-    },
-    ignore=[("logMonoTime", 0), ("valid", True), ("plan.processingDelay", 0)],
-    init_callback=get_car_params,
-    should_recv_callback=None,
-  ),
-  ProcessConfig(
-    proc_name="calibrationd",
-    pub_sub={
-      "cameraOdometry": ["liveCalibration"]
-    },
-    ignore=[("logMonoTime", 0), ("valid", True)],
-    init_callback=get_car_params,
-    should_recv_callback=None,
-  ),
+#  ProcessConfig(
+#    proc_name="radard",
+#    pub_sub={
+#      "can": ["radarState", "liveTracks"],
+#      "liveParameters":  [], "controlsState":  [], "model":  [],
+#    },
+#    ignore=[("logMonoTime", 0), ("valid", True), ("radarState.cumLagMs", 0)],
+#    init_callback=get_car_params,
+#    should_recv_callback=radar_rcv_callback,
+#  ),
+#  ProcessConfig(
+#    proc_name="plannerd",
+#    pub_sub={
+#      "model": ["pathPlan"], "radarState": ["plan"],
+#      "carState": [], "controlsState": [], "liveParameters": [],
+#    },
+#    ignore=[("logMonoTime", 0), ("valid", True), ("plan.processingDelay", 0)],
+#    init_callback=get_car_params,
+#    should_recv_callback=None,
+#  ),
+#  ProcessConfig(
+#    proc_name="calibrationd",
+#    pub_sub={
+#      "cameraOdometry": ["liveCalibration"]
+#    },
+#    ignore=[("logMonoTime", 0), ("valid", True)],
+#    init_callback=get_car_params,
+#    should_recv_callback=None,
+#  ),
 ]
 
 def replay_process(cfg, lr):

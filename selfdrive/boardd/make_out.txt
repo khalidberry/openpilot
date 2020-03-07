@@ -1,0 +1,6 @@
+[ LINK ] boardd
+clang++ -fPIC -o 'boardd' boardd.o can_list_to_can_capnp.o ../common/swaglog.o ../common/params.o ../common/util.o ../../phonelibs/json/src/json.o ../../cereal/gen/c/log.capnp.o ../../cereal/gen/c/car.capnp.o \
+            -lcapnp -lkj -lcapnp_c \
+            -L../../external/zmq/lib/ -l:libczmq.a -l:libzmq.a \
+            -lusb-1.0 -lpthread
+Makefile:63: recipe for target 'boardd' failed

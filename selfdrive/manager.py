@@ -71,12 +71,12 @@ from selfdrive.loggerd.config import ROOT
 managed_processes = {
   "thermald": "selfdrive.thermald",
   "uploader": "selfdrive.loggerd.uploader",
-  "deleter": "selfdrive.loggerd.deleter",
+  #"deleter": "selfdrive.loggerd.deleter",
   "controlsd": "selfdrive.controls.controlsd",
-  "plannerd": "selfdrive.controls.plannerd",
-  "radard": "selfdrive.controls.radard",
+  #"plannerd": "selfdrive.controls.plannerd",
+  #"radard": "selfdrive.controls.radard",
   "ubloxd": ("selfdrive/locationd", ["./ubloxd"]),
-  "loggerd": ("selfdrive/loggerd", ["./loggerd"]),
+  #"loggerd": ("selfdrive/loggerd", ["./loggerd"]),
   "logmessaged": "selfdrive.logmessaged",
   "tombstoned": "selfdrive.tombstoned",
   "logcatd": ("selfdrive/logcatd", ["./logcatd"]),
@@ -84,11 +84,11 @@ managed_processes = {
   "boardd": ("selfdrive/boardd", ["./boardd"]),   # not used directly
   "pandad": "selfdrive.pandad",
   "ui": ("selfdrive/ui", ["./start.py"]),
-  "calibrationd": "selfdrive.locationd.calibrationd",
+  #"calibrationd": "selfdrive.locationd.calibrationd",
   "paramsd": ("selfdrive/locationd", ["./paramsd"]),
-  "visiond": ("selfdrive/visiond", ["./visiond"]),
-  "sensord": ("selfdrive/sensord", ["./start_sensord.py"]),
-  "gpsd": ("selfdrive/sensord", ["./start_gpsd.py"]),
+  #"visiond": ("selfdrive/visiond", ["./visiond"]),
+  #"sensord": ("selfdrive/sensord", ["./start_sensord.py"]),
+  #"gpsd": ("selfdrive/sensord", ["./start_gpsd.py"]),
   "updated": "selfdrive.updated",
 }
 daemon_processes = {
@@ -121,17 +121,17 @@ persistent_processes = [
 
 car_started_processes = [
   'controlsd',
-  'plannerd',
-  'loggerd',
-  'sensord',
-  'radard',
-  'calibrationd',
+  #'plannerd',
+  #'loggerd',
+  #'sensord',
+  #'radard',
+  #'calibrationd',
   'paramsd',
-  'visiond',
+  #'visiond',
   'proclogd',
   'ubloxd',
-  'gpsd',
-  'deleter',
+  #'gpsd',
+  #'deleter',
 ]
 
 def register_managed_process(name, desc, car_started=False):
@@ -491,7 +491,7 @@ def main():
     pass
 
   params = Params()
-  params.manager_start()
+  #params.manager_start()
 
   # set unset params
   if params.get("CompletedTrainingVersion") is None:

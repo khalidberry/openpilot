@@ -18,7 +18,7 @@ from selfdrive.car.honda.values import CAR
 from selfdrive.car.honda.carstate import get_can_signals
 from selfdrive.boardd.boardd import can_capnp_to_can_list, can_list_to_can_capnp
 
-from selfdrive.can.plant_can_parser import CANParser
+from selfdrive.can.parser import CANParser
 from selfdrive.car.honda.interface import CarInterface
 
 from common.dbc import dbc
